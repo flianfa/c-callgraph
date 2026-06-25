@@ -3,6 +3,8 @@
 Explore C function call relationships and global/macro references in a
 **Source Insight-style relation graph** — right inside VS Code.
 
+![Relation graph](media/screenshot.jpg)
+
 Place the cursor on a C function and instantly see **who calls it** (right) and
 **what it calls** (left) in a single bidirectional tree that follows your cursor.
 No compiler, no `compile_commands.json`, no setup — parsing is built in via
