@@ -1,0 +1,93 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--vscode-font-family);
+  color: var(--vscode-foreground);
+  background: var(--vscode-editor-background);
+}
+
+#toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 12px;
+  background: var(--vscode-editorWidget-background, rgba(0,0,0,0.2));
+  border-bottom: 1px solid var(--vscode-panel-border, rgba(255,255,255,0.1));
+  font-size: 12px;
+  z-index: 10;
+}
+
+#toolbar input[type="range"] {
+  vertical-align: middle;
+}
+
+#legend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0.85;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 2px;
+  vertical-align: middle;
+}
+.dot.root { background: #e06c75; }
+.dot.resolved { background: #61afef; }
+.dot.unresolved { background: #8a8a8a; }
+
+.hint { opacity: 0.6; margin-left: 8px; }
+#info { margin-left: auto; opacity: 0.7; }
+
+#graph {
+  position: absolute;
+  top: 32px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 32px);
+  cursor: grab;
+}
+
+.link {
+  stroke: var(--vscode-foreground);
+  stroke-opacity: 0.25;
+}
+.link.highlight {
+  stroke: #e5c07b;
+  stroke-opacity: 0.9;
+}
+
+.node circle {
+  stroke: var(--vscode-editor-background);
+  stroke-width: 1.5px;
+  cursor: pointer;
+}
+.node.root circle { fill: #e06c75; }
+.node.resolved circle { fill: #61afef; }
+.node.unresolved circle { fill: #8a8a8a; }
+
+.node text {
+  fill: var(--vscode-foreground);
+  font-size: 11px;
+  pointer-events: none;
+  paint-order: stroke;
+  stroke: var(--vscode-editor-background);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+
+marker#arrow path {
+  fill: var(--vscode-foreground);
+  fill-opacity: 0.4;
+}

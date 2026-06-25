@@ -1,0 +1,24 @@
+.vscode/**
+.vscode-test/**
+out/**
+src/**
+scripts/**
+wasm/**
+.gitignore
+.vscodeignore
+**/tsconfig.json
+**/webpack.config.js
+**/*.map
+**/*.ts
+DESIGN.md
+
+# Ship only what sql.js needs at runtime (its node entry + wasm). Everything
+# else under node_modules — including the asm.js, browser and debug variants —
+# is excluded. sql.js has no native binary, so the package stays portable.
+node_modules/**
+!node_modules/sql.js/
+!node_modules/sql.js/package.json
+!node_modules/sql.js/LICENSE
+!node_modules/sql.js/dist/
+!node_modules/sql.js/dist/sql-wasm.js
+!node_modules/sql.js/dist/sql-wasm.wasm

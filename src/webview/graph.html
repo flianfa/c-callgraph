@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy" content="%CSP%" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="%CSS%" rel="stylesheet" />
+  <title>C Call Graph</title>
+</head>
+<body>
+  <div id="toolbar">
+    <label>Depth
+      <input type="range" id="depth" min="1" max="5" value="2" />
+      <span id="depthVal">2</span>
+    </label>
+    <span id="legend">
+      <span class="dot root"></span> root
+      <span class="dot resolved"></span> defined
+      <span class="dot unresolved"></span> external
+      <span class="hint">drag nodes · scroll to zoom · click to focus &amp; jump</span>
+    </span>
+    <span id="info"></span>
+  </div>
+  <svg id="graph"></svg>
+  <script nonce="%NONCE%" src="%D3%"></script>
+  <script nonce="%NONCE%" src="%SCRIPT%"></script>
+</body>
+</html>

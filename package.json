@@ -1,0 +1,110 @@
+{
+  "name": "vscode-c-callgraph",
+  "displayName": "C Call Graph",
+  "description": "Explore C function call relationships and global/macro references in a Source Insight-style relation graph. Pure-WASM indexing — no compiler, no setup.",
+  "version": "0.1.0",
+  "publisher": "XM-Flianfa",
+  "author": {
+    "name": "Flianfa"
+  },
+  "license": "Apache-2.0",
+  "icon": "media/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flianfa/c-callgraph.git"
+  },
+  "bugs": {
+    "url": "https://github.com/flianfa/c-callgraph/issues"
+  },
+  "homepage": "https://github.com/flianfa/c-callgraph#readme",
+  "keywords": [
+    "c",
+    "call graph",
+    "callers",
+    "callees",
+    "source insight",
+    "relation graph",
+    "code navigation"
+  ],
+  "galleryBanner": {
+    "color": "#1b2a4a",
+    "theme": "dark"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Visualization",
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:c",
+    "workspaceContains:**/*.c",
+    "workspaceContains:**/*.h"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cCallgraph.showGraph",
+        "title": "C Call Graph: Show Call Graph"
+      },
+      {
+        "command": "cCallgraph.reindex",
+        "title": "C Call Graph: Reindex Project"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "cCallgraph.showGraph",
+          "when": "editorLangId == c",
+          "group": "cCallgraph@1"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "panel": [
+        {
+          "id": "cCallgraphPanel",
+          "title": "C Relations",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "cCallgraphPanel": [
+        {
+          "id": "cCallgraph.relation",
+          "type": "webview",
+          "name": "Relation Graph"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "test:parser": "node ./scripts/test-parser.js",
+    "test:store": "node ./scripts/test-store.js"
+  },
+  "dependencies": {
+    "sql.js": "^1.14.1",
+    "web-tree-sitter": "^0.22.6"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@types/sql.js": "^1.4.11",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^2.31.0",
+    "copy-webpack-plugin": "^12.0.2",
+    "d3": "^7.9.0",
+    "tree-sitter-wasms": "^0.1.13",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.5.0",
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.1.4"
+  }
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy" content="%CSP%" />
+  <link href="%CSS%" rel="stylesheet" />
+  <title>C Relations</title>
+</head>
+<body>
+  <div id="toolbar">
+    <div class="seg">
+      <button id="btnBoth" class="active" title="Callees (left) + Callers (right)">◂ Callees │ Callers ▸</button>
+      <button id="btnVars" title="Functions referencing this variable/macro">Variables</button>
+    </div>
+    <label class="follow"><input type="checkbox" id="follow" checked /> Follow</label>
+    <span id="rootName"></span>
+  </div>
+  <div id="canvas">
+    <svg id="tree"></svg>
+    <div id="empty">Place cursor on a C function or variable.</div>
+  </div>
+  <script nonce="%NONCE%" src="%D3%"></script>
+  <script nonce="%NONCE%" src="%SCRIPT%"></script>
+</body>
+</html>
